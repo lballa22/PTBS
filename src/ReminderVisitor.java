@@ -1,4 +1,8 @@
-public class ReminderVisitor extends NodeVisitor {
+public abstract class ReminderVisitor extends NodeVisitor {
+
+	private Reminder m_Reminder;
+
+	private ClassProductList classProductList;
 
 	public void visitProduct(Product product) {
 
