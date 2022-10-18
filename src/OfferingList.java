@@ -1,4 +1,4 @@
-public class Offering List extends ArrayList {
+public class OfferingList extends ArrayList {
 
 	private OfferingIterator offeringIterator;
 

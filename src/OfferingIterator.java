@@ -1,6 +1,6 @@
 public class OfferingIterator implements ListIterator {
 
-	private Offering List offering List;
+	private OfferingList offeringList;
 
 	public boolean hasNext() {
 		return false;

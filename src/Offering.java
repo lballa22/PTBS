@@ -1,5 +1,5 @@
 public class Offering {
 
-	private Offering List offering List;
+	private OfferingList offeringList;
 
 }
