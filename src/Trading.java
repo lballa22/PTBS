@@ -2,7 +2,7 @@ public class Trading {
 
 	private Product product;
 
-	private OfferingList offering List;
+	private OfferingList offeringList;
 
 	public void accept(NodeVisitor visitor) {
 
