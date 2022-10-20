@@ -1,8 +1,7 @@
+import java.io.IOException;
+
 public abstract class Person {
-
-	private ProductMenu productMenu;
-
-	public abstract void showMenu();
+	public abstract void showMenu() throws IOException;
 
 	public void showAddButton() {
 
@@ -20,6 +19,8 @@ public abstract class Person {
 
 	}
 
-	public abstract ProductMenu createProductMenu();
+	public ProductMenu createProductMenu() {
+		return null;
+	}
 
 }

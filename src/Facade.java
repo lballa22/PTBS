@@ -1,6 +1,8 @@
+import javax.swing.*;
+import java.awt.*;
 import java.io.IOException;
 import java.util.*;
-public class Facade {
+public class Facade extends JFrame {
 
 	private int UserType;
 
@@ -12,9 +14,12 @@ public class Facade {
 
 	private Person thePerson;
 
-	public boolean login() throws IOException {
+	public boolean login(Facade f){
 		Login credentials = new Login();
-		return credentials.login();
+		setLayout(new BorderLayout());
+		add(credentials, BorderLayout.CENTER);
+		f.setVisible(true);
+		return true;
 	}
 
 	public void addTrading() {

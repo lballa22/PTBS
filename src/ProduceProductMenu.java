@@ -1,11 +1,14 @@
-public class ProduceProductMenu implements ProductMenu {
+import javax.swing.*;
+import java.awt.*;
+import java.io.*;
+import java.util.ArrayList;
 
-	public void showMenu() {
+public class ProduceProductMenu extends JPanel implements ProductMenu{
 
+	public void showMenu() throws IOException {
 	}
 
 	public void showAddButton() {
-
 	}
 
 	public void showViewButton() {
