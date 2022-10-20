@@ -1,3 +1,5 @@
+import java.io.IOException;
+import java.util.*;
 public class Facade {
 
 	private int UserType;
@@ -10,8 +12,9 @@ public class Facade {
 
 	private Person thePerson;
 
-	public boolean login() {
-		return false;
+	public boolean login() throws IOException {
+		Login credentials = new Login();
+		return credentials.login();
 	}
 
 	public void addTrading() {
