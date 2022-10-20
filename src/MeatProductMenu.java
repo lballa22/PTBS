@@ -1,9 +1,9 @@
 public class MeatProductMenu implements ProductMenu {
 
 	public void showMenu() {
+		System.out.println("beef \npork \nmutton");
 
 	}
-
 	public void showAddButton() {
 
 	}

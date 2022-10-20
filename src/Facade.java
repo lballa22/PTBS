@@ -47,6 +47,24 @@ public class Facade {
 
 	public void createProductList() {
 
+		int menuType=-1;
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter menu type \n 0->Meat Menu \n 1->Produce Menu");
+		try{
+			menuType = Integer.parseInt(sc.nextLine());
+		}
+		catch(NumberFormatException n){
+			System.out.println("Invalid input please enter again");
+			this.createProductList();
+		}
+		if (menuType==1)
+		{
+			ProduceProductMenu p = new ProduceProductMenu();
+			p.showMenu();
+		} else if (menuType==0) {
+			MeatProductMenu m = new MeatProductMenu();
+			m.showMenu();
+		}
 	}
 
 	public void AttachProductToUser() {

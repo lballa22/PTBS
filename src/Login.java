@@ -40,8 +40,8 @@ public class Login {
                 System.out.println("Logged in");
                 return true;
             } else {
-                System.out.print("Invalid Credentials");
-                System.exit(1);
+                System.out.println("Invalid Credentials");
+                this.login();
                 return false;
             }
         }
