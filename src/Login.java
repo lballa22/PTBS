@@ -5,22 +5,31 @@ import java.util.Scanner;
 
 public class Login {
     int userType;
+    String userName;
+
     public boolean login() throws IOException{
+        /**
+         * This method takes the input of user credentials
+         */
+        System.out.println("\t\t*****Facade Pattern*****");
         System.out.println("Please enter type of user: \n 0 -> Buyer \n 1 -> Seller");
         Scanner s = new Scanner(System.in);
-        userType = s.nextInt();
+        userType=s.nextInt();
         s.nextLine();
         return validateUser(userType);
     }
     public boolean validateUser(int userType) throws IOException
     {
+        /**
+         * This method validates user credentials
+         */
         Scanner s = new Scanner(System.in);
         File file = null;
         if (userType == 0) {
-            file = new File("./PTBS/src/resources/buyer.txt");
+            file = new File("./PTBS/src/resources/BuyerInfo.txt");
         }
         else{
-            file = new File("./PTBS/src/resources/seller.txt");
+            file = new File("./PTBS/src/resources/SellerInfo.txt");
         }
             BufferedReader br = new BufferedReader(new FileReader(file));
             String str;
@@ -37,11 +46,12 @@ public class Login {
             System.out.println("Enter Password");
             String pwd = s.nextLine();
             if (user.containsKey(uname) && user.get(uname).equals(pwd)) {
-                System.out.println("Logged in");
+                System.out.println("User Logged in Successfully");
+                this.userName = uname;
                 return true;
             } else {
-                System.out.print("Invalid Credentials");
-                System.exit(1);
+                System.out.println("Invalid Credentials");
+                this.login();
                 return false;
             }
         }
