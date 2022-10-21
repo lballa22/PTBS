@@ -6,6 +6,7 @@ import java.util.Scanner;
 public class Login {
     int userType;
     public boolean login() throws IOException{
+        System.out.println("*****Facade Pattern*****");
         System.out.println("Please enter type of user: \n 0 -> Buyer \n 1 -> Seller");
         Scanner s = new Scanner(System.in);
         userType=s.nextInt();
@@ -37,7 +38,7 @@ public class Login {
             System.out.println("Enter Password");
             String pwd = s.nextLine();
             if (user.containsKey(uname) && user.get(uname).equals(pwd)) {
-                System.out.println("Logged in");
+                System.out.println("User Logged in Successfully");
                 return true;
             } else {
                 System.out.println("Invalid Credentials");

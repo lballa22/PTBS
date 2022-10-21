@@ -70,7 +70,7 @@ public class Facade {
             String[] product = line.split(":");
             this.theProductList.add(new Product(product));
         }
-        System.out.println("Bridge Pattern");
+        System.out.println("*****Bridge Pattern*****");
         int menuType = -1;
         Scanner sc = new Scanner(System.in);
         while(true)
@@ -83,7 +83,7 @@ public class Facade {
             this.createProductList();
         }
         if (menuType == 0) {
-            System.out.println("Factory Method");
+            System.out.println("*****Factory Method*****");
             System.out.println("Please select menu type \n0->Meat \n1->Produce");
             try {
                 menuType = Integer.parseInt(sc.nextLine());
@@ -99,9 +99,6 @@ public class Facade {
             else if (menuType == 0) {
                 MeatProductMenu m = new MeatProductMenu(this);
                 m.showMenu();
-            }
-            else {
-                System.out.println("Test");
             }
 
         }

@@ -7,6 +7,7 @@ public class MeatProductMenu implements ProductMenu {
 		this.facade = f;
 	}
 	public void showMenu() {
+		System.out.println("*****Iterator Pattern*****");
 		while(this.facade.theProductList.getIterator().hasNext()) {
 			Product p = this.facade.theProductList.getIterator().next();
 			if (p.type.equals("Meat")) {
