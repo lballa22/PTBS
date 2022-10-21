@@ -1,9 +1,9 @@
 # PTBS
 
 Steps to compile:
-1. Clone repository from 
+1. Clone repository from https://github.com/lballa22/PTBS
 2. Open the project in Intellij.
-3. Click on Run from the 
+3. Click on Run to run the project.
 4. The output will be displayed in the terminal.
 
 
