@@ -1,3 +1,5 @@
+import java.io.*;
+
 public class ReminderVisitor extends NodeVisitor {
 
 	private Reminder m_Reminder;
@@ -8,7 +10,19 @@ public class ReminderVisitor extends NodeVisitor {
 
 	}
 
-	public void visitTrading(Trading trading) {
+	public void visitTrading(Trading trading, String loggedInUser) throws IOException {
+		File file = new File("./PTBS/src/resources/UserProduct.txt");
+
+			BufferedReader br = new BufferedReader(new FileReader(file));
+			String line;
+			while ((line = br.readLine()) != null) {
+				String[] split = line.split(":");
+				if (split[0].equals(loggedInUser)) {
+					System.out.println(split[1]);
+				}
+			}
+
+
 
 	}
 
@@ -17,3 +31,4 @@ public class ReminderVisitor extends NodeVisitor {
 	}
 
 }
+

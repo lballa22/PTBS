@@ -5,6 +5,8 @@ import java.util.Scanner;
 
 public class Login {
     int userType;
+    String userName;
+
     public boolean login() throws IOException{
         System.out.println("*****Facade Pattern*****");
         System.out.println("Please enter type of user: \n 0 -> Buyer \n 1 -> Seller");
@@ -18,10 +20,10 @@ public class Login {
         Scanner s = new Scanner(System.in);
         File file = null;
         if (userType == 0) {
-            file = new File("./PTBS/src/resources/buyer.txt");
+            file = new File("./PTBS/src/resources/BuyerInfo.txt");
         }
         else{
-            file = new File("./PTBS/src/resources/seller.txt");
+            file = new File("./PTBS/src/resources/SellerInfo.txt");
         }
             BufferedReader br = new BufferedReader(new FileReader(file));
             String str;
@@ -39,6 +41,7 @@ public class Login {
             String pwd = s.nextLine();
             if (user.containsKey(uname) && user.get(uname).equals(pwd)) {
                 System.out.println("User Logged in Successfully");
+                this.userName = uname;
                 return true;
             } else {
                 System.out.println("Invalid Credentials");

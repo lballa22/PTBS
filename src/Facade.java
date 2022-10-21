@@ -1,7 +1,4 @@
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.*;
 
 public class Facade {
@@ -16,6 +13,8 @@ public class Facade {
 
     private Person thePerson;
 
+    private String loggedInUser;
+
     public Facade() {
         this.theProductList = new ClassProductList();
     }
@@ -25,6 +24,7 @@ public class Facade {
         Login l = new Login();
         is_true = l.login();
         UserType = l.userType;
+        loggedInUser = l.userName;
         if (UserType == 0) {
             Person b = new Buyer();
             b.showMenu();
@@ -101,8 +101,17 @@ public class Facade {
                 m.showMenu();
             }
 
-        }
-        if(menuType==2){
+        } else if (menuType==1) {
+            Trading t = new Trading(this);
+
+            ReminderVisitor rv = new ReminderVisitor();
+            try {
+                rv.visitTrading(t, loggedInUser);
+            } catch (IOException ex) {
+                System.out.println(ex.getMessage());
+            }
+
+        } else if(menuType==2){
             break;
         }
         }
