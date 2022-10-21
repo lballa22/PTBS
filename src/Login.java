@@ -8,7 +8,10 @@ public class Login {
     String userName;
 
     public boolean login() throws IOException{
-        System.out.println("*****Facade Pattern*****");
+        /**
+         * This method takes the input of user credentials
+         */
+        System.out.println("\t\t*****Facade Pattern*****");
         System.out.println("Please enter type of user: \n 0 -> Buyer \n 1 -> Seller");
         Scanner s = new Scanner(System.in);
         userType=s.nextInt();
@@ -17,6 +20,9 @@ public class Login {
     }
     public boolean validateUser(int userType) throws IOException
     {
+        /**
+         * This method validates user credentials
+         */
         Scanner s = new Scanner(System.in);
         File file = null;
         if (userType == 0) {

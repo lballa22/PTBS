@@ -2,6 +2,9 @@ import java.io.*;
 import java.util.*;
 
 public class Facade {
+    /**
+    * Facade Pattern Impelented in this class where Login() is called
+    * */
 
     int UserType;
 
@@ -20,6 +23,9 @@ public class Facade {
     }
 
     public boolean login() throws IOException {
+        /**
+        * this method validates the user
+        */
         boolean is_true;
         Login l = new Login();
         is_true = l.login();
@@ -63,6 +69,9 @@ public class Facade {
     }
 
     public void createProductList() throws IOException {
+        /**
+        * This method creates the product list and takes the input from the user
+        */
         File file = new File("./PTBS/src/resources/ProductInfo.txt");
         BufferedReader br = new BufferedReader(new FileReader(file));
         String line;
@@ -70,50 +79,47 @@ public class Facade {
             String[] product = line.split(":");
             this.theProductList.add(new Product(product));
         }
-        System.out.println("*****Bridge Pattern*****");
         int menuType = -1;
         Scanner sc = new Scanner(System.in);
-        while(true)
-        {
-        System.out.println("Enter menu type \n 0->View Menu \n 1->View Bidding \n 2->Sign out");
-        try {
-            menuType = Integer.parseInt(sc.nextLine());
-        } catch (NumberFormatException n) {
-            System.out.println("Invalid input please enter again");
-            this.createProductList();
-        }
-        if (menuType == 0) {
-            System.out.println("*****Factory Method*****");
-            System.out.println("Please select menu type \n0->Meat \n1->Produce");
+        while (true) {
+            System.out.println("\t\t*****Bridge Pattern*****"); //Bridge Pattern implementation starts here
+            System.out.println("Enter menu type \n 0->View Menu \n 1->View Bidding \n 2->Sign out");
             try {
                 menuType = Integer.parseInt(sc.nextLine());
-            }
-            catch (NumberFormatException n) {
+            } catch (NumberFormatException n) {
                 System.out.println("Invalid input please enter again");
                 this.createProductList();
             }
-            if (menuType == 1) {
-                ProduceProductMenu p = new ProduceProductMenu(this);
-                p.showMenu();
-            }
-            else if (menuType == 0) {
-                MeatProductMenu m = new MeatProductMenu(this);
-                m.showMenu();
-            }
+            if (menuType == 0) {
+                System.out.println("\t\t*****Factory Pattern*****"); //Factory pattern implementation starts here
+                System.out.println("Please select menu type \n0->Meat \n1->Produce");
+                try {
+                    menuType = Integer.parseInt(sc.nextLine());
+                } catch (NumberFormatException n) {
+                    System.out.println("Invalid input please enter again");
+                    this.createProductList();
+                }
+                if (menuType == 1) {
+                    ProduceProductMenu p = new ProduceProductMenu(this);
+                    p.showMenu();
+                } else if (menuType == 0) {
+                    MeatProductMenu m = new MeatProductMenu(this);
+                    m.showMenu();
+                }
 
-        } else if (menuType==1) {
-            Trading t = new Trading(this);
+            } else if (menuType == 1) {
+                Trading t = new Trading(this);
 
-            ReminderVisitor rv = new ReminderVisitor();
-            try {
-                rv.visitTrading(t, loggedInUser);
-            } catch (IOException ex) {
-                System.out.println(ex.getMessage());
+                ReminderVisitor rv = new ReminderVisitor();
+                try {
+                    rv.visitTrading(t, loggedInUser);
+                } catch (IOException ex) {
+                    System.out.println(ex.getMessage());
+                }
+
+            } else if (menuType == 2) {
+                break;
             }
-
-        } else if(menuType==2){
-            break;
-        }
         }
     }
 

@@ -14,7 +14,7 @@ Steps to compile:
 1. Facade Pattern: This is the face of the PTBS where this has access to all subsystems. The facade object contains all 
 the components of the subsystem. In this PTBS it has the implementation of login code where it validates the user.
 
-2. Builder Pattern: This pattern takes care of menu options, after a user logged in successfully. Based on the input of
+2. Bridge Pattern: This pattern takes care of menu options, after a user logged in successfully. Based on the input of
 the user(buyer or seller) implemented from person, the productMenu interface will be implemented by the MeatProductMenu 
 or ProduceProductMenu.
 
