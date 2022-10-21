@@ -8,7 +8,7 @@ public class Login {
     public boolean login() throws IOException{
         System.out.println("Please enter type of user: \n 0 -> Buyer \n 1 -> Seller");
         Scanner s = new Scanner(System.in);
-        userType = s.nextInt();
+        userType=s.nextInt();
         s.nextLine();
         return validateUser(userType);
     }

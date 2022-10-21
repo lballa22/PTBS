@@ -1,7 +1,19 @@
 public class MeatProductMenu implements ProductMenu {
 
+	private final Facade facade;
+
+	public MeatProductMenu(Facade f)
+	{
+		this.facade = f;
+	}
 	public void showMenu() {
-		System.out.println("beef \npork \nmutton");
+		while(this.facade.theProductList.getIterator().hasNext()) {
+			Product p = this.facade.theProductList.getIterator().next();
+			if (p.type.equals("Meat")) {
+				System.out.println(p.name);
+			}
+		}
+		this.facade.theProductList.getIterator().moveToHead();
 
 	}
 	public void showAddButton() {
